@@ -6,16 +6,16 @@ Gem::Specification.new do |spec|
   spec.name = "ms_header_trail"
   spec.version = MsHeaderTrail::VERSION
   spec.authors = ["Adriano Dadario"]
-  spec.email = ["adriano.dadario@youse.com.br"]
+  spec.email = ["dadario@gmail.com"]
 
   spec.summary = "Transport collected data through HTTP header from microservices requests."
-  spec.homepage = "https://github.com/youse-seguradora/ms_header_trail"
+  spec.homepage = "https://github.com/dadario/ms_header_trail"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/youse-seguradora/ms_header_trail"
-  spec.metadata["changelog_uri"] = "https://github.com/youse-seguradora/ms_header_trail/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/dadario/ms_header_trail"
+  spec.metadata["changelog_uri"] = "https://github.com/dadario/ms_header_trail/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
