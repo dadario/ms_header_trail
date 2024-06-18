@@ -37,6 +37,14 @@ module MsHeaderTrail
       yield
     end
 
+    # Public: Reset values into current thread
+    def reset
+      Thread.current
+            .keys
+            .select { |key| key.start_with?(configuration.prefix_keyname) }
+            .each { |key| Thread.current[key] = nil }
+    end
+
     # Public: Retrieve the given key
     def get(key)
       Thread.current[key]
