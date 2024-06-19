@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+## [0.2.1] - 2024-06-04
+- Allow to use ruby >= 2.4
+
 ## [0.2.0] - 2024-06-04
 - Allow to reset current thread values
 
