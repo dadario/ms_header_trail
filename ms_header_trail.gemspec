@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Transport collected data through HTTP header from microservices requests."
   spec.homepage = "https://github.com/dadario/ms_header_trail"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = ">= 2.4"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/dadario/ms_header_trail"
@@ -31,4 +31,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "faraday"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rubocop", "~> 1.0"
 end

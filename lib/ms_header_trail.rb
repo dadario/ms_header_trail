@@ -27,7 +27,7 @@ module MsHeaderTrail
     def retrieve
       Thread.current
             .keys
-            .select { |key| key.start_with?(configuration.prefix_keyname) }
+            .select { |key| start_with?(key, configuration.prefix_keyname) }
             .each_with_object({}) { |key, memo| memo[configuration.from_store(key)] = get(key) }
     end
 
@@ -41,7 +41,7 @@ module MsHeaderTrail
     def reset
       Thread.current
             .keys
-            .select { |key| key.start_with?(configuration.prefix_keyname) }
+            .select { |key| start_with?(key, configuration.prefix_keyname) }
             .each { |key| Thread.current[key] = nil }
     end
 
@@ -68,6 +68,12 @@ module MsHeaderTrail
     #   end
     def configure
       yield configuration
+    end
+
+    private
+
+    def start_with?(value, expected)
+      value.to_s.start_with?(expected)
     end
   end
 end
