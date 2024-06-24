@@ -25,24 +25,20 @@ module MsHeaderTrail
     # Public: Retrive the stored parameters, which was set by user
     # during the Rack middleware, faraday connection or manually
     def retrieve
-      Thread.current
-            .keys
-            .select { |key| start_with?(key, configuration.prefix_keyname) }
-            .each_with_object({}) { |key, memo| memo[configuration.from_store(key)] = get(key) }
+      current_thread_data
+        .each_with_object({}) { |key, memo| memo[configuration.from_store(key)] = get(key) }
     end
 
-    # Public: Execute a block code after data collected
+    # Public: Execute a block code after reset and collect data
     def with(attributes)
+      reset
       collect(attributes)
       yield
     end
 
     # Public: Reset values into current thread
     def reset
-      Thread.current
-            .keys
-            .select { |key| start_with?(key, configuration.prefix_keyname) }
-            .each { |key| Thread.current[key] = nil }
+      current_thread_data.each { |key| Thread.current[key] = nil }
     end
 
     # Public: Retrieve the given key
@@ -71,6 +67,12 @@ module MsHeaderTrail
     end
 
     private
+
+    def current_thread_data
+      Thread.current
+            .keys
+            .select { |key| start_with?(key, configuration.prefix_keyname) }
+    end
 
     def start_with?(value, expected)
       value.to_s.start_with?(expected)
