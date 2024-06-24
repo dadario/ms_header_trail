@@ -1,4 +1,6 @@
-## [Unreleased]
+## [0.2.2] - 2024-06-04
+- Reseting current thread data before start another
+  process into rack middleware
 
 ## [0.2.1] - 2024-06-04
 - Allow to use ruby >= 2.4
